@@ -2,13 +2,18 @@ package io.moodanalyzer;
 
 public class MoodAnalyzer {
 	
-	public String analyseMood(String message) {
+	private String message;
+	public MoodAnalyzer(String message){
+		this.message = message;
+	}
+	
+	public String analyseMood() {
 		String mood = "";
 		if(message.toLowerCase().contains("sad")) {
 			mood = "SAD";
 		}
 		else {
-			mood="HAPPY";
+			mood = "HAPPY";
 		}
 		return mood;
 	}
