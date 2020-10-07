@@ -3,7 +3,7 @@ package io.moodanalyzer;
 public class MoodAnalysisException extends Exception {
 	
 	enum ExceptionType {
-		Null,Empty,InvalidMood;
+		Null,Empty
 	}
 	
 	public ExceptionType type;
