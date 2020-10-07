@@ -8,10 +8,13 @@ public class MoodAnalyzer {
 		this.message = message;
 	}
 	
-	public String analyseMood() {
+	public String analyseMood() throws MoodAnalysisException,NullPointerException {
 		String mood = "";
 		try {
-			if(message.toLowerCase().contains("sad")) {
+			if(message.isEmpty()){
+				throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.Empty,"Cannot provide Empty Mood");
+			}
+			else if(message.toLowerCase().contains("sad")) {
 				mood = "SAD";
 			}
 			else {
@@ -19,11 +22,11 @@ public class MoodAnalyzer {
 			}
 		}
 		catch(NullPointerException exception) {
-			return "HAPPY";
-		}
-		catch(Exception exception) {
-			exception.printStackTrace();
+			throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.Null,"Cannot provide Null");
 		}
 		return mood;
 	}
+	
 }
+
+
